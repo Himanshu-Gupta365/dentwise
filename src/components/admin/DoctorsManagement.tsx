@@ -8,6 +8,7 @@ import { Badge } from "../ui/badge";
 import AddDoctorDialog from "./AddDoctorDialog";
 // import EditDoctorDialog from "./EditDoctorDialog";
 import { Doctor } from "@prisma/client";
+import EditDoctorDialog from "./EditDoctorDialog";
 
 function DoctorsManagement() {
   const { data: doctors = [] } = useGetDoctors();
@@ -116,12 +117,12 @@ function DoctorsManagement() {
 
       <AddDoctorDialog isOpen={isAddDialogOpen} onClose={() => setIsAddDialogOpen(false)}  />
 
-      {/* <EditDoctorDialog
-        key={selectedDoctor?.id} // advanced react
+       <EditDoctorDialog
+        key={selectedDoctor?.id} 
         isOpen={isEditDialogOpen}
         onClose={handleCloseEditDialog}
         doctor={selectedDoctor}
-      /> */}
+      />
     </>
   );
 }
