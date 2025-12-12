@@ -29,7 +29,6 @@ export const formatPhoneNumber = (value: string) => {
   return ` ${phoneNumber.slice(0, 5)} ${phoneNumber.slice(5, 10)}`;
 };
 
-//  ai generated 🎉
 export const getNext5Days = () => {
   const dates = [];
   const tomorrow = new Date();
