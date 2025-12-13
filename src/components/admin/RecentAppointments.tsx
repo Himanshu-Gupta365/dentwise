@@ -1,4 +1,4 @@
-// import { useGetAppointments, useUpdateAppointmentStatus } from "@/hooks/use-appointment";
+import { useGetAppointments, useUpdateAppointmentStatus } from "@/hooks/use-appointment";
 import { Badge } from "../ui/badge";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../ui/card";
 import { Calendar } from "lucide-react";
@@ -6,15 +6,15 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from ".
 import { Button } from "../ui/button";
 
 function RecentAppointments() {
-//   const { data: appointments = [] } = useGetAppointments();
-//   const updateAppointmentMutation = useUpdateAppointmentStatus();
+  const { data: appointments = [] } = useGetAppointments();
+  const updateAppointmentMutation = useUpdateAppointmentStatus();
 
   const handleToggleAppointmentStatus = (appointmentId: string) => {
-    // const appointment = appointments.find((apt) => apt.id === appointmentId);
+    const appointment = appointments.find((apt) => apt.id === appointmentId);
 
-    // const newStatus = appointment?.status === "CONFIRMED" ? "COMPLETED" : "CONFIRMED";
+    const newStatus = appointment?.status === "CONFIRMED" ? "COMPLETED" : "CONFIRMED";
 
-    // updateAppointmentMutation.mutate({ id: appointmentId, status: newStatus });
+    updateAppointmentMutation.mutate({ id: appointmentId, status: newStatus });
   };
 
   const getStatusBadge = (status: string) => {
@@ -38,7 +38,7 @@ function RecentAppointments() {
         <CardDescription>Monitor and manage all patient appointments</CardDescription>
       </CardHeader>
 
-      <CardContent>
+      <CardContent> 
         <div className="rounded-lg border">
           <Table>
             <TableHeader>
@@ -53,7 +53,7 @@ function RecentAppointments() {
             </TableHeader>
 
             <TableBody>
-              {/* {appointments.map((appointment) => (
+              {appointments.map((appointment) => (
                 <TableRow key={appointment.id}>
                   <TableCell>
                     <div>
@@ -87,7 +87,7 @@ function RecentAppointments() {
                     <div className="text-xs text-muted-foreground">Click status to toggle</div>
                   </TableCell>
                 </TableRow>
-              ))} */}
+              ))}
             </TableBody>
           </Table>
         </div>
